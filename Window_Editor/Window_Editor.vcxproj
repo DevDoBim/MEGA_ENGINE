@@ -146,7 +146,7 @@
     <Image Include="Window_Editor.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <Text Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MEGA_ENGINE\MEGA_ENGINE.vcxproj">
