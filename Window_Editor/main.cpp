@@ -9,7 +9,9 @@
 // 전역 변수:
 HINSTANCE hInst;                              
 WCHAR szTitle[MAX_LOADSTRING];                  
-WCHAR szWindowClass[MAX_LOADSTRING];        
+WCHAR szWindowClass[MAX_LOADSTRING]; 
+
+// MEGA ENGINE
 MEGA::APP application;
 
 ATOM                MyRegisterClass(HINSTANCE hInstance);

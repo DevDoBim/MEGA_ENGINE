@@ -1,4 +1,5 @@
 #include "MEGA_APP.h"
+#include "MEGA_Input.h"
 
 
 namespace MEGA
@@ -17,6 +18,8 @@ namespace MEGA
 		_hWnd = hWnd;
 		_hdc = GetDC(_hWnd);
 
+		Input::Initailize();
+
 	}
 
 	void APP::Run()
@@ -28,6 +31,7 @@ namespace MEGA
 
 	void APP::Update()
 	{
+		Input::Update();
 		_player.Update();
 	}
 

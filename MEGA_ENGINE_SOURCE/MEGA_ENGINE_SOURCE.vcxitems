@@ -17,9 +17,11 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_APP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_GameObject.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Input.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_APP.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_GameObject.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Input.cpp" />
   </ItemGroup>
 </Project>

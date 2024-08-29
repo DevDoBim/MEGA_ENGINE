@@ -1,4 +1,5 @@
 #include "MEGA_GameObject.h"
+#include "MEGA_Input.h"
 
 namespace MEGA
 {
@@ -12,22 +13,22 @@ namespace MEGA
 
 	void GameObject::Update()
 	{
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		if (Input::GetKey(e_KeyCode::A) || Input::GetKey(e_KeyCode::Left))
 		{
 			_x -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+		if (Input::GetKey(e_KeyCode::D) || Input::GetKey(e_KeyCode::Right))
 		{
 			_x += 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
+		if (Input::GetKey(e_KeyCode::W) || Input::GetKey(e_KeyCode::Up))
 		{
 			_y -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+		if (Input::GetKey(e_KeyCode::S) || Input::GetKey(e_KeyCode::Down))
 		{
 			_y += 0.01f;
 		}
