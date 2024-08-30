@@ -21,6 +21,8 @@ namespace MEGA
 		End
 	};
 
+	constexpr int keyCounts = static_cast<UINT>(e_KeyCode::End);
+
 	class Input
 	{
 	public:
@@ -39,16 +41,17 @@ namespace MEGA
 		static void Initailize();
 		static void Update();
 
-
 	public:
-		void CreateKey();
-		void 
-		static bool GetKeyDown(e_KeyCode code) { return _keys[static_cast<UINT>(code)].state == e_KeyState::Down; }
-		static bool GetKeyUp(e_KeyCode code) { return _keys[static_cast<UINT>(code)].state == e_KeyState::Up; }
-		static bool GetKey(e_KeyCode code) { return _keys[static_cast<UINT>(code)].state == e_KeyState::Pressed; }
+		static bool GetKeyDown(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Down; }
+		static bool GetKeyUp(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Up; }
+		static bool GetKey(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Pressed; }
 
 	private:
-		static std::vector<Key> _keys;
+		static void CreateKey();
+		static void UpdateKey();
+
+	private:
+		static std::vector<Key> keys;
 	};
 }
 

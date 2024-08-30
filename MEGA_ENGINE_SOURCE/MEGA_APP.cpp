@@ -1,5 +1,6 @@
 #include "MEGA_APP.h"
 #include "MEGA_Input.h"
+#include "MEGA_Time.h"
 
 
 namespace MEGA
@@ -19,6 +20,7 @@ namespace MEGA
 		_hdc = GetDC(_hWnd);
 
 		Input::Initailize();
+		Time::Initailize();
 
 	}
 
@@ -32,6 +34,8 @@ namespace MEGA
 	void APP::Update()
 	{
 		Input::Update();
+		Time::Update();
+
 		_player.Update();
 	}
 
@@ -41,6 +45,7 @@ namespace MEGA
 
 	void APP::Render()
 	{
+		Time::Render(_hdc);
 		_player.Render(_hdc);
 	}
 }

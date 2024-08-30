@@ -21,6 +21,8 @@ namespace MEGA
 	private:
 		float _x;
 		float _y;
+
+		const int _speed = 100.0f;
 	};
 }
 

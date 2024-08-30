@@ -1,5 +1,6 @@
 #include "MEGA_GameObject.h"
 #include "MEGA_Input.h"
+#include "MEGA_Time.h"
 
 namespace MEGA
 {
@@ -15,22 +16,22 @@ namespace MEGA
 	{
 		if (Input::GetKey(e_KeyCode::A) || Input::GetKey(e_KeyCode::Left))
 		{
-			_x -= 0.01f;
+			_x -= _speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(e_KeyCode::D) || Input::GetKey(e_KeyCode::Right))
 		{
-			_x += 0.01f;
+			_x += _speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(e_KeyCode::W) || Input::GetKey(e_KeyCode::Up))
 		{
-			_y -= 0.01f;
+			_y -= _speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(e_KeyCode::S) || Input::GetKey(e_KeyCode::Down))
 		{
-			_y += 0.01f;
+			_y += _speed * Time::DeltaTime();
 		}
 
 	}
