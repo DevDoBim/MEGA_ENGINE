@@ -82,7 +82,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hInstance      = hInstance;
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINDOWEDITOR));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
-    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
+    wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_WINDOWEDITOR);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
@@ -95,13 +95,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance;
 
+   constexpr UINT width = 1600;
+   constexpr UINT height = 900;
+
    HWND hWnd = CreateWindowW
    (
        szWindowClass, 
        szTitle, 
        WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, 
-       CW_USEDEFAULT, 0, 
+       width, height, 
        nullptr, 
        nullptr, 
        hInstance,
@@ -113,9 +116,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
       return FALSE;
    }
 
-   application.Initialize(hWnd);
+   application.Initialize(hWnd, width, height);
 
-   ShowWindow(hWnd, nCmdShow);
+   //application Initialize에서 처리.
+   //ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
    return TRUE;
