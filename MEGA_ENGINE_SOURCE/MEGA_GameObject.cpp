@@ -43,6 +43,11 @@ namespace MEGA
 
 	void GameObject::Render(HDC hdc) 
 	{
-		Rectangle(hdc, 100 + _x, 100 + _y, 200 + _x, 200 + _y);
+		HBRUSH brush = CreateSolidBrush(RGB(rand() % 255, rand() % 255, rand() % 255));
+		HBRUSH defaultBrush = (HBRUSH)SelectObject(hdc, brush);
+
+		Ellipse(hdc, _x, _y, 100 + _x, 100 + _y);
+		SelectObject(hdc, defaultBrush);
+		DeleteObject(brush);
 	}
 }

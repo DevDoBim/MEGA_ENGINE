@@ -6,7 +6,7 @@ namespace MEGA
 	class APP
 	{
 	public:
-		APP();
+		APP(); 
 		~APP();
 
 	public:
@@ -17,7 +17,17 @@ namespace MEGA
 		void LateUpdate();
 		void Render();
 
-	public:
+	//Initialize
+	private:
+		void adjustWindowRect(HWND hWnd, UINT width, UINT height);
+		void createBuffer();
+		void InitializeEtc();
+
+	//Render
+	private:
+		void resetRender();
+		void copyRender();
+
 
 	private:
 		HWND _hWnd;
@@ -32,7 +42,7 @@ namespace MEGA
 
 		RECT _rect;
 
-		MEGA::GameObject _player;
+		std::vector<GameObject*> _gameObjects;
 	};
 }
 

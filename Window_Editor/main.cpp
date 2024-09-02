@@ -1,6 +1,7 @@
 ﻿#include "framework.h"
 #include "Window_Editor.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_APP.h"
+#include "..\MEGA_ENGINE\MEGA_LoadScenes.h"
 
 //#pragma commet(lib, "..\x64\Debug\MEGA_ENGINE.lib")
 
@@ -121,6 +122,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //application Initialize에서 처리.
    //ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //loadScene
+   MEGA::LoadScenes();
 
    return TRUE;
 }

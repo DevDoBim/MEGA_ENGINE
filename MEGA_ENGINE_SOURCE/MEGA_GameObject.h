@@ -17,6 +17,7 @@ namespace MEGA
 	public:
 		int GetPostionX() { return _x; }
 		int GetPostionY() { return _y; }
+		void SetPosition(float x, float y) { _x = x; _y = y; }
 
 	private:
 		float _x;

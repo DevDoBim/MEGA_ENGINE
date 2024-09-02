@@ -132,6 +132,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MEGA_LoadScenes.h" />
+    <ClInclude Include="MEGA_MainScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MEGA_MainScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
