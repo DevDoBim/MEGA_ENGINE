@@ -5,6 +5,8 @@
 namespace MEGA
 {
 	SpriteRenderer::SpriteRenderer()
+		:_Image(nullptr), 
+		_width(0), _height(0)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()
@@ -21,14 +23,16 @@ namespace MEGA
 	}
 	void SpriteRenderer::Render(HDC hdc)
 	{
-		HBRUSH brush = CreateSolidBrush(RGB(rand() % 255, rand() % 255, rand() % 255));
-		HBRUSH defaultBrush = (HBRUSH)SelectObject(hdc, brush);
-
 		Transform* transform = GetOwner()->GetComponent<Transform>();
-		Rectangle(hdc, transform->GetX(), transform->GetY(), 100 + transform->GetX(), 100 + transform->GetY());
+		Vector2 position = transform->GetPosition();
 
-		SelectObject(hdc, defaultBrush);
-
-		DeleteObject(brush);
+		Gdiplus::Graphics graphics(hdc);
+		graphics.DrawImage(_Image, Gdiplus::Rect(position._x, position._y, _width, _height));
+	}
+	void SpriteRenderer::ImageLoad(const std::wstring& path)
+	{
+		_Image = Gdiplus::Image::FromFile(path.c_str());
+		_width = _Image->GetWidth();
+		_height = _Image->GetHeight();
 	}
 }

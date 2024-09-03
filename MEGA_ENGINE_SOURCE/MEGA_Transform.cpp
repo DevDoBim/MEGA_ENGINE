@@ -1,7 +1,7 @@
 #include "MEGA_Transform.h"
 
 MEGA::Transform::Transform() :
-	_x(0),_y(0)
+	_position(0, 0)
 {
 }
 

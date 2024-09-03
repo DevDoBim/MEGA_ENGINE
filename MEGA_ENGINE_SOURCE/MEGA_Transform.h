@@ -3,6 +3,8 @@
 
 namespace MEGA
 {
+	using namespace math;
+
 	struct position
 	{
 		int x;
@@ -22,13 +24,11 @@ namespace MEGA
 		void Render(HDC hdc) override;
 
 	public:
-		void SetPosition(int x, int y) { _x = x; _y = y; }
-		int GetX() const { return _x; }
-		int GetY() const { return _y; }
+		inline void SetPosition(Vector2 position) { _position = position; }
+		inline Vector2 GetPosition() const { return _position; }
 
 	private:
-		int _x;
-		int _y;
+		Vector2 _position;
 	};
 
 }

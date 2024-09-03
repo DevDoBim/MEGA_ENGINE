@@ -10,13 +10,18 @@ namespace MEGA
 		~SpriteRenderer();
 
 	public:
-		void Initialize();
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		void Initialize() override;
+		void Update() override;
+		void LateUpdate() override;
+		void Render(HDC hdc) override;
+
+	public:
+		void ImageLoad(const std::wstring& path);
 
 	private:
-
+		Gdiplus::Image* _Image;
+		UINT _width;
+		UINT _height;	
 	};
 
 }

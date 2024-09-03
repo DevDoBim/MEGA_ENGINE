@@ -19,42 +19,16 @@ namespace MEGA
 	void MainScene::Initialize()
 	{
 		{
-			Player* player = new Player();
-			Transform* transform = player->AddComponent<Transform>();
+			Player* backGround = new Player();
+			Transform* transform = backGround->AddComponent<Transform>();
+			transform->SetPosition(Vector2(0, 0));
+			transform->SetName(L"BackGround");
 
-			transform->SetPosition(800, 450);
-			transform->SetName(L"Transform");
+			SpriteRenderer* sprite = backGround->AddComponent<SpriteRenderer>();
+			sprite->SetName(L"Sprite");
+			sprite->ImageLoad(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png");
 
-			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
-			spriteRender->SetName(L"Renderer");
-
-			AddGameObject(player);
-		}
-
-		{
-			Player* player = new Player(); 
-			Transform* transform = player->AddComponent<Transform>(); 
-
-			transform->SetPosition(100, 200);
-			transform->SetName(L"Transform"); 
-
-			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
-			spriteRender->SetName(L"Renderer");
-
-			AddGameObject(player);
-		}
-
-		{
-			Player* player = new Player();
-			Transform* transform = player->AddComponent<Transform>();
-
-			transform->SetPosition(450, 300);
-			transform->SetName(L"Transform");
-
-			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
-			spriteRender->SetName(L"Renderer");
-
-			AddGameObject(player);
+			AddGameObject(backGround);
 		}
 	}
 

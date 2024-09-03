@@ -15,6 +15,9 @@ WCHAR szWindowClass[MAX_LOADSTRING];
 // MEGA ENGINE
 MEGA::APP application;
 
+ULONG_PTR gdiPlusToken;
+Gdiplus::GdiplusStartupInput gdiPlusStartupInput;
+
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -65,6 +68,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             application.Run();
         }
     }
+    Gdiplus::GdiplusShutdown(gdiPlusToken);
+    return static_cast<int>(msg.wParam);
 }
 
 
@@ -122,6 +127,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    //application Initialize에서 처리.
    //ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gdiPlusToken, &gdiPlusStartupInput, NULL);
 
    //loadScene
    MEGA::LoadScenes();
