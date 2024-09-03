@@ -1,10 +1,13 @@
 #include "MEGA_MainScene.h"
+#include "MEGA_Player.h"
+
 #include "..\MEGA_ENGINE_SOURCE\MEGA_GameObject.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_SpriteRenderer.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Transform.h"
+
 
 namespace MEGA
 {
-
-
 	MainScene::MainScene()
 	{
 	}
@@ -15,11 +18,43 @@ namespace MEGA
 
 	void MainScene::Initialize()
 	{
-		for (size_t i = 0; i < 100; i++)
 		{
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
+			Player* player = new Player();
+			Transform* transform = player->AddComponent<Transform>();
+
+			transform->SetPosition(800, 450);
+			transform->SetName(L"Transform");
+
+			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
+			spriteRender->SetName(L"Renderer");
+
+			AddGameObject(player);
+		}
+
+		{
+			Player* player = new Player(); 
+			Transform* transform = player->AddComponent<Transform>(); 
+
+			transform->SetPosition(100, 200);
+			transform->SetName(L"Transform"); 
+
+			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
+			spriteRender->SetName(L"Renderer");
+
+			AddGameObject(player);
+		}
+
+		{
+			Player* player = new Player();
+			Transform* transform = player->AddComponent<Transform>();
+
+			transform->SetPosition(450, 300);
+			transform->SetName(L"Transform");
+
+			SpriteRenderer* spriteRender = player->AddComponent<SpriteRenderer>();
+			spriteRender->SetName(L"Renderer");
+
+			AddGameObject(player);
 		}
 	}
 

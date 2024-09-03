@@ -1,5 +1,5 @@
 #pragma once
-#include "CommonInclude.h"
+#include "MEGA_Component.h"
 
 namespace MEGA
 {
@@ -10,20 +10,42 @@ namespace MEGA
 		~GameObject();
 
 	public:
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-	public:
-		int GetPostionX() { return _x; }
-		int GetPostionY() { return _y; }
-		void SetPosition(float x, float y) { _x = x; _y = y; }
+	template<typename T>
+	T* AddComponent()
+	{
+		T* component = new T();
+		component->SetOwner(this);
+		_components.push_back(component);
+
+		return component;
+	}
+
+	template<typename T>
+	T* GetComponent()
+	{
+		T* returnComponent = nullptr;
+
+		for (Component* component : _components)
+		{
+			// 기본 클래스의 포인터를 파생 클래스의 포인터로 변환
+			// 객체가 실제로 변환하려는 파생 클래스의 인스턴스인지 판별, 유효하지 않으면 nullptr 반환
+			returnComponent = dynamic_cast<T*>(component);
+			if (returnComponent)
+			{
+				break;
+			}
+		}
+		return returnComponent;
+	}
+
 
 	private:
-		float _x;
-		float _y;
-
-		const int _speed = 100.0f;
+		std::vector<Component*> _components;
 	};
 }
 

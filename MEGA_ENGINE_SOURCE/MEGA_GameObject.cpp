@@ -4,50 +4,50 @@
 
 namespace MEGA
 {
-	GameObject::GameObject() :
-		_x(0.0f), _y(0.0f)
+	GameObject::GameObject() 
 	{
 	}
 	GameObject::~GameObject()
 	{
+		for (Component* comp : _components)
+		{
+			if (comp != nullptr)
+			{
+				delete comp;
+				comp = nullptr;
+			}
+		}
+	}
+
+	void GameObject::Initialize()
+	{
+		for (Component* comp : _components)
+		{
+			comp->Initialize();
+		}
 	}
 
 	void GameObject::Update()
 	{
-		if (Input::GetKey(e_KeyCode::A) || Input::GetKey(e_KeyCode::Left))
+		for (Component* comp : _components)
 		{
-			_x -= _speed * Time::DeltaTime();
+			comp->Update();
 		}
-
-		if (Input::GetKey(e_KeyCode::D) || Input::GetKey(e_KeyCode::Right))
-		{
-			_x += _speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKey(e_KeyCode::W) || Input::GetKey(e_KeyCode::Up))
-		{
-			_y -= _speed * Time::DeltaTime();
-		}
-
-		if (Input::GetKey(e_KeyCode::S) || Input::GetKey(e_KeyCode::Down))
-		{
-			_y += _speed * Time::DeltaTime();
-		}
-
 	}
 
 	void GameObject::LateUpdate()
 	{
-
+		for (Component* comp : _components)
+		{
+			comp->LateUpdate();
+		}
 	}
 
 	void GameObject::Render(HDC hdc) 
 	{
-		HBRUSH brush = CreateSolidBrush(RGB(rand() % 255, rand() % 255, rand() % 255));
-		HBRUSH defaultBrush = (HBRUSH)SelectObject(hdc, brush);
-
-		Ellipse(hdc, _x, _y, 100 + _x, 100 + _y);
-		SelectObject(hdc, defaultBrush);
-		DeleteObject(brush);
+		for (Component* comp : _components)
+		{
+			comp->Render(hdc);
+		}
 	}
 }

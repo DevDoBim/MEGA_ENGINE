@@ -10,8 +10,10 @@
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="MEGA_MainScene.h" />
+    <ClInclude Include="MEGA_Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_MainScene.cpp" />
+    <ClCompile Include="MEGA_Player.cpp" />
   </ItemGroup>
 </Project>

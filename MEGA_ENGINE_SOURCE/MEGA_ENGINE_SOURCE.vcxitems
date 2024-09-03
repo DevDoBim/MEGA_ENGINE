@@ -16,20 +16,26 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_APP.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SceneName.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Time.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_APP.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Scene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SceneManager.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SceneName.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Time.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Transform.cpp" />
   </ItemGroup>
 </Project>
