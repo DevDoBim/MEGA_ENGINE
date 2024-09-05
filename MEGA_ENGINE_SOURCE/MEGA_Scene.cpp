@@ -5,16 +5,8 @@ namespace MEGA
 	Scene::Scene() :_layers{}
 	{
 		_layers.resize(static_cast<UINT>(e_LayerType::End));
+		CreateLayers();
 		
-		/*for (size_t i = 0; i < static_cast<UINT>(e_LayerType::End); i++)
-		{
-			_layers[i] = new Layer();
-		}*/
-
-		for (Layer*& layer : _layers)
-		{
-			layer = new Layer();
-		}
 	}
 	Scene::~Scene()
 	{
@@ -68,6 +60,17 @@ namespace MEGA
 
 	}
 
-	
+	void Scene::CreateLayers()
+	{
+		/*for (size_t i = 0; i < static_cast<UINT>(e_LayerType::End); i++)
+		{
+			_layers[i] = new Layer();
+		}*/
+
+		for (Layer*& layer : _layers)
+		{
+			layer = new Layer();
+		}
+	}
 
 }

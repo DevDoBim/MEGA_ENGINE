@@ -15,28 +15,17 @@ namespace MEGA
 		{
 			T* scene = new T();
 			scene->SetName(sceneName);
-			scene->Initialize();
 
+			_activeScene = scene;
+			scene->Initialize();
 			_scene.insert(std::make_pair(sceneName, scene));
 
 			return scene;
 		}
 
-		static Scene* LoadScene(const std::wstring& sceneName)
-		{
-			if (_activeScene)
-			{
-				_activeScene->OnExit();
-			}
-
-			std::map<std::wstring, Scene*>::iterator iter = _scene.find(sceneName);
-
-			assert(iter != _scene.end());
-			_activeScene = iter->second;
-			_activeScene->OnEnter();
-
-			return iter->second;
-		}
+		static Scene* LoadScene(const std::wstring& sceneName);
+		static Scene* GetActiveScene() { return _activeScene; }
+		
 
 	public:
 		static void Initialize();

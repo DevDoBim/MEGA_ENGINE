@@ -1,11 +1,13 @@
 #include "MEGA_GameObject.h"
 #include "MEGA_Input.h"
 #include "MEGA_Time.h"
+#include "MEGA_Transform.h"
 
 namespace MEGA
 {
 	GameObject::GameObject() 
 	{
+		InitializTransform();
 	}
 	GameObject::~GameObject()
 	{
@@ -49,5 +51,10 @@ namespace MEGA
 		{
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::InitializTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

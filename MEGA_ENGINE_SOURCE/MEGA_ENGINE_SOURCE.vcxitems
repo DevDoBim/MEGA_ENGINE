@@ -22,6 +22,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Input.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Math.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Object.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Scene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SceneManager.h" />

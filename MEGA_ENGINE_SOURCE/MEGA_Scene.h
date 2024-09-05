@@ -19,10 +19,14 @@ namespace MEGA
 
 	public:
 		void AddGameObject(GameObject* gameObj, const e_LayerType type);
+		Layer* GetLayer(e_LayerType Type) { return _layers[static_cast<UINT>(Type)]; }
 
 	public:
 		virtual void OnEnter();
 		virtual void OnExit();
+
+	private:
+		void CreateLayers();
 
 
 	private:

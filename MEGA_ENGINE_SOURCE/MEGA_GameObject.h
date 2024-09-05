@@ -44,6 +44,8 @@ namespace MEGA
 		return returnComponent;
 	}
 
+	private:
+		void InitializTransform();
 
 	private:
 		std::vector<Component*> _components;

@@ -5,6 +5,21 @@ namespace MEGA
 	std::map<std::wstring, Scene*> SceneManager::_scene = {};
 	Scene* SceneManager::_activeScene = nullptr;
 
+		Scene* SceneManager::LoadScene(const std::wstring& sceneName)
+	{
+		if (_activeScene)
+		{
+			_activeScene->OnExit();
+		}
+
+		std::map<std::wstring, Scene*>::iterator iter = _scene.find(sceneName);
+
+		assert(iter != _scene.end());
+		_activeScene = iter->second;
+		_activeScene->OnEnter();
+
+		return iter->second;
+	}
 	// 모든 Scene 초기화
 	void SceneManager::Initialize()
 	{
@@ -22,4 +37,5 @@ namespace MEGA
 	{
 		_activeScene->Render(hdc);
 	}
+
 }

@@ -8,6 +8,7 @@
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Transform.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_SceneManager.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Input.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Object.h"
 
 
 namespace MEGA
@@ -23,7 +24,7 @@ namespace MEGA
 	void MainScene::Initialize()
 	{
 		{
-			_backGround = new Player();
+			/*_backGround = new Player();
 			Transform* transform = _backGround->AddComponent<Transform>();
 			transform->SetPosition(Vector2(0, 0));
 			transform->SetName(L"BackGround");
@@ -32,7 +33,11 @@ namespace MEGA
 			sprite->SetName(L"Sprite");
 			sprite->ImageLoad(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png");
 
-			AddGameObject(_backGround, e_LayerType::BackGround);
+			AddGameObject(_backGround, e_LayerType::BackGround);*/
+			_backGround = Object::Instantiate<Player>(e_LayerType::BackGround, Vector2(100.0f, 100.0f));
+			SpriteRenderer* sprite = _backGround->AddComponent<SpriteRenderer>();
+			sprite->SetName(L"Sprite"); 
+			sprite->ImageLoad(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png"); 
 		}
 	}
 
