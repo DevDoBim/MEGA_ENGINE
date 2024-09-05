@@ -123,9 +123,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    }
 
    application.Initialize(hWnd, width, height);
-
-   //application Initialize에서 처리.
    //ShowWindow(hWnd, nCmdShow);
+   
    UpdateWindow(hWnd);
 
    Gdiplus::GdiplusStartup(&gdiPlusToken, &gdiPlusStartupInput, NULL);

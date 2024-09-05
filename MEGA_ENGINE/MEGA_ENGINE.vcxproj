@@ -135,10 +135,12 @@
     <ClInclude Include="MEGA_LoadScenes.h" />
     <ClInclude Include="MEGA_MainScene.h" />
     <ClInclude Include="MEGA_Player.h" />
+    <ClInclude Include="MEGA_TitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_MainScene.cpp" />
     <ClCompile Include="MEGA_Player.cpp" />
+    <ClCompile Include="MEGA_TitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

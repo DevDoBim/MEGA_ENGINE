@@ -1,15 +1,15 @@
 #pragma once
 #include "MEGA_SceneName.h"
+#include "CommonInclude.h"
 #include "MEGA_GameObject.h"
-#include "MEGA_Layer.h"
 
 namespace MEGA
 {
-	class Scene : public SceneName
+	class Layer : public SceneName
 	{
 	public:
-		Scene();
-		~Scene();
+		Layer();
+		~Layer();
 
 	public:
 		virtual void Initialize();
@@ -18,15 +18,11 @@ namespace MEGA
 		virtual void Render(HDC hdc);
 
 	public:
-		void AddGameObject(GameObject* gameObj, const e_LayerType type);
-
-	public:
-		virtual void OnEnter();
-		virtual void OnExit();
-
+		void AddGameObject(GameObject* gameObject);
 
 	private:
-		std::vector<Layer*> _layers;
+		e_LayerType _Type;
+		std::vector<GameObject*> _gameObjects;
 	};
 }
 

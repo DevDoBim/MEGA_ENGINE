@@ -9,11 +9,21 @@
     <ClInclude Include="MEGA_LoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="MEGA_MainScene.h" />
     <ClInclude Include="MEGA_Player.h" />
+    <ClInclude Include="MEGA_TitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MEGA_MainScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MEGA_MainScene.cpp" />
     <ClCompile Include="MEGA_Player.cpp" />
+    <ClCompile Include="MEGA_TitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MEGA_MainScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

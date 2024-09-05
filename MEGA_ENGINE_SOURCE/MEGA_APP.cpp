@@ -43,6 +43,7 @@ namespace MEGA
 
 	void APP::LateUpdate()
 	{
+		SceneManager::LateUpdate();
 	}
 
 	void APP::Render()
@@ -53,6 +54,7 @@ namespace MEGA
 		Time::Render(_backHdc);
 		SceneManager::Render(_backHdc);
 		copyRender();
+		//SceneManager::Render(_backHdc);
 	}
 
 	void APP::adjustWindowRect(HWND hWnd, UINT width, UINT height)

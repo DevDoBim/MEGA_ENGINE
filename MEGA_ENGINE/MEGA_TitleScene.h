@@ -1,16 +1,14 @@
 #pragma once
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Scene.h"
 
+
 namespace MEGA
 {
-	class Player;
-
-	class MainScene : public Scene
+	class TitleScene : public Scene
 	{
-
 	public:
-		MainScene();
-		~MainScene();
+		TitleScene();
+		~TitleScene();
 
 	public:
 		void Initialize() override;
@@ -23,7 +21,7 @@ namespace MEGA
 		void OnExit() override;
 
 	private:
-		Player* _backGround;
+
 	};
 }
 

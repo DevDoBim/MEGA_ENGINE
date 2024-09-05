@@ -24,10 +24,16 @@ namespace MEGA
 
 		static Scene* LoadScene(const std::wstring& sceneName)
 		{
+			if (_activeScene)
+			{
+				_activeScene->OnExit();
+			}
+
 			std::map<std::wstring, Scene*>::iterator iter = _scene.find(sceneName);
 
 			assert(iter != _scene.end());
 			_activeScene = iter->second;
+			_activeScene->OnEnter();
 
 			return iter->second;
 		}

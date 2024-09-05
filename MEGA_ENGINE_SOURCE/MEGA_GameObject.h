@@ -19,6 +19,7 @@ namespace MEGA
 	T* AddComponent()
 	{
 		T* component = new T();
+		component->Initialize();
 		component->SetOwner(this);
 		_components.push_back(component);
 

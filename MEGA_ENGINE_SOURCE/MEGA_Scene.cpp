@@ -2,9 +2,19 @@
 
 namespace MEGA
 {
-	Scene::Scene() :_gameObjects{}
+	Scene::Scene() :_layers{}
 	{
+		_layers.resize(static_cast<UINT>(e_LayerType::End));
+		
+		/*for (size_t i = 0; i < static_cast<UINT>(e_LayerType::End); i++)
+		{
+			_layers[i] = new Layer();
+		}*/
 
+		for (Layer*& layer : _layers)
+		{
+			layer = new Layer();
+		}
 	}
 	Scene::~Scene()
 	{
@@ -12,32 +22,52 @@ namespace MEGA
 
 	void Scene::Initialize()
 	{
+		for (Layer* layer : _layers)
+		{
+			assert(layer);
+			layer->Initialize();
+		}
 	}
 
 	void Scene::Update()
 	{
-		for (GameObject* gameObj : _gameObjects)
+		for (Layer* layer : _layers)
 		{
-			gameObj->Update();
+			assert(layer);
+			layer->Update();
 		}
 	}
 	void Scene::LateUpdate()
 	{
-		for (GameObject* gameObj : _gameObjects)
+		for (Layer* layer : _layers)
 		{
-			gameObj->LateUpdate();
+			assert(layer);
+			layer->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC hdc)
 	{
-		for (GameObject* gameObj : _gameObjects)
+		for (Layer* layer : _layers)
 		{
-			gameObj->Render(hdc);
+			assert(layer);
+			layer->Render(hdc);
 		}
 	}
 
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::AddGameObject(GameObject* gameObj, const e_LayerType type)
 	{
-		_gameObjects.push_back(gameObject);
+		_layers[static_cast<UINT>(type)]->AddGameObject(gameObj);
 	}
+
+	void Scene::OnEnter()
+	{
+	}
+
+	void Scene::OnExit()
+	{
+
+	}
+
+	
+
 }

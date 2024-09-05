@@ -15,10 +15,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Eaums.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_APP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Component.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_GameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Input.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Math.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Scene.h" />
@@ -33,6 +35,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Component.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_GameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Input.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Math.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Scene.cpp" />

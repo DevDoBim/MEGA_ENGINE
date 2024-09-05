@@ -1,14 +1,18 @@
 #include "MEGA_MainScene.h"
 #include "MEGA_Player.h"
 
+#include "MEGA_TitleScene.h"
+
 #include "..\MEGA_ENGINE_SOURCE\MEGA_GameObject.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_SpriteRenderer.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Transform.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_SceneManager.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Input.h"
 
 
 namespace MEGA
 {
-	MainScene::MainScene()
+	MainScene::MainScene() : _backGround{}
 	{
 	}
 
@@ -19,33 +23,49 @@ namespace MEGA
 	void MainScene::Initialize()
 	{
 		{
-			Player* backGround = new Player();
-			Transform* transform = backGround->AddComponent<Transform>();
+			_backGround = new Player();
+			Transform* transform = _backGround->AddComponent<Transform>();
 			transform->SetPosition(Vector2(0, 0));
 			transform->SetName(L"BackGround");
 
-			SpriteRenderer* sprite = backGround->AddComponent<SpriteRenderer>();
+			SpriteRenderer* sprite = _backGround->AddComponent<SpriteRenderer>();
 			sprite->SetName(L"Sprite");
 			sprite->ImageLoad(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png");
 
-			AddGameObject(backGround);
+			AddGameObject(_backGround, e_LayerType::BackGround);
 		}
 	}
 
-	void MEGA::MainScene::Update()
+	void MainScene::Update()
 	{
 		// 부모 함수 호출
 		Scene::Update();
 
 	}
 
-	void MEGA::MainScene::LateUpdate()
+	void MainScene::LateUpdate()
 	{
 		Scene::LateUpdate();
+		if (Input::GetKeyDown(e_KeyCode::K))
+		{
+			SceneManager::LoadScene(L"TitleScene");
+		}
 	}
 
-	void MEGA::MainScene::Render(HDC hdc)
+	void MainScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
+		wchar_t str[256] = L"Main Scene";
+		int len = wcsnlen_s(str, 256);
+		TextOut(hdc, 100, 100, str, len);
+	}
+
+	void MainScene::OnEnter()
+	{
+	}
+	void MainScene::OnExit()
+	{
+		Transform* transform = _backGround->GetComponent<Transform>();
+		transform->SetPosition(Vector2(0, 0));
 	}
 }
