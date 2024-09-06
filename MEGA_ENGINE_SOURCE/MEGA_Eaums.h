@@ -13,4 +13,11 @@ namespace MEGA
 		End
 	};
 
+	enum class e_ResourceType
+	{
+		Texture,
+		AudioClip,
+		Prefab,
+		End,
+	};
 }

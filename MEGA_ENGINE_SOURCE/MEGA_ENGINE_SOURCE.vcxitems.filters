@@ -27,11 +27,20 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Time.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resource.cpp">
-      <Filter>Helpers</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Math.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resource.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resources.cpp">
+      <Filter>Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Texture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Layer.cpp">
+      <Filter>Layer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,9 +73,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Time.h">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resource.h">
-      <Filter>Helpers</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Math.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -75,6 +81,18 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Object.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resource.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resources.h">
+      <Filter>Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Texture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Layer.h">
+      <Filter>Layer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +110,15 @@
     </Filter>
     <Filter Include="Helpers">
       <UniqueIdentifier>{b1038d19-bfc3-47ef-9e08-cee18b1959be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{1f72df27-d3d0-4786-b6a2-b3dc588adb73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{fdf929f9-dd80-441c-b034-ae71c26df023}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{e138d540-310c-49af-85ab-039bcd766754}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

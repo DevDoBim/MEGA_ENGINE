@@ -4,26 +4,33 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{584d7b1e-8594-49c0-8d11-ab64d2e8794b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{e5134c4f-d18e-4a3f-8875-2c1cf77c16d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MEGA_LoadScenes.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="MEGA_Player.h" />
     <ClInclude Include="MEGA_TitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="MEGA_MainScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="MEGA_Player.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MEGA_Player.cpp" />
     <ClCompile Include="MEGA_TitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="MEGA_MainScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MEGA_Player.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

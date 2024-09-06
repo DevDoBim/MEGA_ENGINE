@@ -17,6 +17,9 @@ namespace MEGA
 		void LateUpdate();
 		void Render();
 
+	public:
+		HDC GetHDC() const { return _hdc; }
+
 	//Initialize
 	private:
 		void adjustWindowRect(HWND hWnd, UINT width, UINT height);

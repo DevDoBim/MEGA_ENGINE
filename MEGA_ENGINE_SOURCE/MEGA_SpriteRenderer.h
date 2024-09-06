@@ -15,13 +15,8 @@ namespace MEGA
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-	public:
-		void ImageLoad(const std::wstring& path);
-
 	private:
-		Gdiplus::Image* _Image;
-		UINT _width;
-		UINT _height;	
+	
 	};
 
 }
