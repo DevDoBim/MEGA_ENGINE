@@ -21,6 +21,7 @@
     <ClInclude Include="MEGA_Player.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="MEGA_LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_TitleScene.cpp">

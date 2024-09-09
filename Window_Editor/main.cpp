@@ -2,6 +2,7 @@
 #include "Window_Editor.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_APP.h"
 #include "..\MEGA_ENGINE\MEGA_LoadScenes.h"
+#include "..\MEGA_ENGINE\MEGA_LoadResources.h"
 
 //#pragma commet(lib, "..\x64\Debug\MEGA_ENGINE.lib")
 
@@ -130,6 +131,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gdiPlusToken, &gdiPlusStartupInput, NULL);
 
    //loadScene
+   MEGA::LoadResources();
    MEGA::LoadScenes();
 
    return TRUE;

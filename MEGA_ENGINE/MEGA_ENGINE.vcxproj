@@ -136,6 +136,7 @@
     <ClInclude Include="MEGA_MainScene.h" />
     <ClInclude Include="MEGA_Player.h" />
     <ClInclude Include="MEGA_TitleScene.h" />
+    <ClInclude Include="MEGA_LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_MainScene.cpp" />

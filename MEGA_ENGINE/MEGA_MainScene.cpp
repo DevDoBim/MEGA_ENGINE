@@ -10,6 +10,7 @@
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Input.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Object.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Texture.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Resources.h"
 
 
 namespace MEGA
@@ -23,15 +24,14 @@ namespace MEGA
 	}
 
 	void MainScene::Initialize()
-	{
+	{	
 		{
-			_backGround = Object::Instantiate<Player>(e_LayerType::BackGround, Vector2(100.0f, 100.0f));
+			// 게임 오브젝트들을 생성하기 전에 Load를 한다.
+			_backGround = Object::Instantiate<Player>(e_LayerType::BackGround);
 			SpriteRenderer* sprite = _backGround->AddComponent<SpriteRenderer>();
-			sprite->SetName(L"Sprite"); 
-			
-			//sprite->ImageLoad(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png"); 
-			graphics::Texture* texture = new graphics::Texture();
-			texture->Load(L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png");
+
+			graphics::Texture* background = Resources::Find<graphics::Texture>(L"Background");
+			sprite->SetTexture(background);
 		}
 	}
 
