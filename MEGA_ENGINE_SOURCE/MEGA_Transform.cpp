@@ -1,7 +1,7 @@
 #include "MEGA_Transform.h"
 
 MEGA::Transform::Transform() :
-	_position(0, 0)
+	_position(0, 0), Component(e_ComponentType::TransForm)
 {
 }
 

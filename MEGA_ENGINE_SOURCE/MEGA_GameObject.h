@@ -21,7 +21,8 @@ namespace MEGA
 		T* component = new T();
 		component->Initialize();
 		component->SetOwner(this);
-		_components.push_back(component);
+
+		_components[static_cast<UINT>(component->GetType())] = component;
 
 		return component;
 	}

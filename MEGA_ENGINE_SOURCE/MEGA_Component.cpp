@@ -2,7 +2,8 @@
 
 namespace MEGA
 {
-	Component::Component() : _owner(nullptr)
+	Component::Component(e_ComponentType type) 
+		: _owner(nullptr), _type(type)
 	{
 	}
 

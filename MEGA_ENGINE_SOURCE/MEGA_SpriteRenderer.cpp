@@ -9,7 +9,7 @@
 namespace MEGA
 {
 	SpriteRenderer::SpriteRenderer() : 
-		Component(), _texture(nullptr), _scale(Vector2::one)
+		Component(e_ComponentType::SpriteRenderer), _texture(nullptr), _scale(Vector2::one)
 	{
 	}
 	SpriteRenderer::~SpriteRenderer()

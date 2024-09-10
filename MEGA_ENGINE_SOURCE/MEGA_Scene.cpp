@@ -4,7 +4,7 @@ namespace MEGA
 {
 	Scene::Scene() :_layers{}
 	{
-		_layers.resize(static_cast<UINT>(e_LayerType::End));
+		_layers.resize(static_cast<UINT>(e_LayerType::MAX));
 		CreateLayers();
 		
 	}

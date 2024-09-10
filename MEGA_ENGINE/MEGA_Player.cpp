@@ -20,15 +20,6 @@ namespace MEGA
 	void Player::LateUpdate()
 	{
 		GameObject::LateUpdate();
-
-		if (Input::GetKey(e_KeyCode::Right))
-		{
-			Transform* transform = GetComponent<Transform>();
-			Vector2 position = transform->GetPosition();
-
-			position._x += Time::DeltaTime() * 100.0f;
-			transform->SetPosition(position);
-		}
 	}
 
 	void Player::Render(HDC hdc)

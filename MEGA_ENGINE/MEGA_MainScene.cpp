@@ -1,5 +1,6 @@
 #include "MEGA_MainScene.h"
 #include "MEGA_Player.h"
+#include "MEGA_PlayerScript.h"
 
 #include "MEGA_TitleScene.h"
 
@@ -32,6 +33,8 @@ namespace MEGA
 
 			graphics::Texture* background = Resources::Find<graphics::Texture>(L"Background");
 			sprite->SetTexture(background);
+
+			_backGround->AddComponent<PlayerScript>();
 		}
 	}
 

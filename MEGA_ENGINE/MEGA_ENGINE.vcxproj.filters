@@ -7,6 +7,9 @@
     <Filter Include="Objects">
       <UniqueIdentifier>{e5134c4f-d18e-4a3f-8875-2c1cf77c16d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{11c9b466-173c-4556-b6a4-5641d8a8141b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MEGA_LoadScenes.h">
@@ -22,6 +25,9 @@
       <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="MEGA_LoadResources.h" />
+    <ClInclude Include="MEGA_PlayerScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_TitleScene.cpp">
@@ -32,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="MEGA_Player.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MEGA_PlayerScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

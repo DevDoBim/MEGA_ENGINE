@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_APP.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_GameObject.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Component.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Scene.cpp">
       <Filter>Scnen</Filter>
     </ClCompile>
@@ -17,12 +14,6 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Input.cpp">
       <Filter>Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Transform.cpp">
-      <Filter>Component</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Time.cpp">
       <Filter>Helpers</Filter>
@@ -42,13 +33,25 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Layer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Script.cpp">
+      <Filter>Component\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Transform.cpp">
+      <Filter>Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.cpp">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Camera.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Component.cpp">
+      <Filter>Component\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_APP.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_GameObject.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Component.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -63,12 +66,6 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Input.h">
       <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.h">
-      <Filter>Component</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Transform.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Time.h">
       <Filter>Helpers</Filter>
@@ -93,6 +90,21 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Layer.h">
       <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Script.h">
+      <Filter>Component\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Transform.h">
+      <Filter>Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.h">
+      <Filter>Component\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Camera.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Component.h">
+      <Filter>Component\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +131,18 @@
     </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{e138d540-310c-49af-85ab-039bcd766754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Script">
+      <UniqueIdentifier>{f6201b09-02b1-40f7-85f1-7248ce32208c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Transform">
+      <UniqueIdentifier>{5130ab0f-20eb-4e86-a1fe-4f8e556e4e29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\SpriteRenderer">
+      <UniqueIdentifier>{4cb4a5ce-ee75-491c-b44e-fee72637570a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Component">
+      <UniqueIdentifier>{434da308-140d-4804-8b3e-e407666b4efd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

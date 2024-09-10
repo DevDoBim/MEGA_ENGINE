@@ -7,7 +7,7 @@ namespace MEGA
 	class Component :public SceneName
 	{
 	public:
-		Component();
+		Component(e_ComponentType type);
 		~Component();
 
 	public:
@@ -19,9 +19,11 @@ namespace MEGA
 	public:
 		inline void SetOwner(GameObject* owner) { _owner = owner; }
 		inline GameObject* GetOwner() const { return _owner; }
+		inline e_ComponentType GetType() const { return _type; }
 		
 	private:
 		GameObject* _owner;
+		e_ComponentType _type;
 	};
 }
 

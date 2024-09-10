@@ -2,11 +2,13 @@
 #include "MEGA_Input.h"
 #include "MEGA_Time.h"
 #include "MEGA_Transform.h"
+#include "MEGA_Script.h"
 
 namespace MEGA
 {
-	GameObject::GameObject() 
+	GameObject::GameObject()
 	{
+		_components.resize(static_cast<UINT>(e_ComponentType::End));
 		InitializTransform();
 	}
 	GameObject::~GameObject()
@@ -25,6 +27,7 @@ namespace MEGA
 	{
 		for (Component* comp : _components)
 		{
+			if (comp == nullptr) continue;
 			comp->Initialize();
 		}
 	}
@@ -33,6 +36,7 @@ namespace MEGA
 	{
 		for (Component* comp : _components)
 		{
+			if (comp == nullptr) continue;
 			comp->Update();
 		}
 	}
@@ -41,6 +45,7 @@ namespace MEGA
 	{
 		for (Component* comp : _components)
 		{
+			if (comp == nullptr) continue;
 			comp->LateUpdate();
 		}
 	}
@@ -49,6 +54,7 @@ namespace MEGA
 	{
 		for (Component* comp : _components)
 		{
+			if (comp == nullptr) continue;
 			comp->Render(hdc);
 		}
 	}

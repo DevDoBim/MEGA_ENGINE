@@ -10,7 +10,15 @@ namespace MEGA
 		//Mover,
 		//Character,
 		Player,
-		End
+		MAX = 10
+	};
+
+	enum class e_ComponentType
+	{
+		TransForm,
+		SpriteRenderer,
+		Script,
+		End,
 	};
 
 	enum class e_ResourceType
