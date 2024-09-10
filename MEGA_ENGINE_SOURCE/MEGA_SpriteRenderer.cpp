@@ -2,6 +2,8 @@
 #include "MEGA_Transform.h"
 #include "MEGA_GameObject.h"
 #include "MEGA_Texture.h"
+#include "MEGA_Renderer.h"
+#include "MEGA_Camera.h"
 
 #define Check_BMP (graphics::Texture::e_TextureType::BMP)
 #define Check_PNG (graphics::Texture::e_TextureType::PNG)
@@ -30,7 +32,9 @@ namespace MEGA
 
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2 position = transform->GetPosition();
+		position = renderer::mainCamera->CalculatePosition(position);
 
+		// Texture Type
 		if (_texture->GetTextureType() == Check_BMP)
 		{
 			TransparentBlt

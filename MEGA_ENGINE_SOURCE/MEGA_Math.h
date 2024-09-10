@@ -16,6 +16,10 @@ namespace MEGA::math
 		float _x;
 		float _y;
 
+	public:
+		Vector2 operator- (Vector2 other) { return Vector2(_x - other._x, _y - other._y); }
+		Vector2 operator+ (Vector2 other) { return Vector2(_x + other._x, _y + other._y); }
+		Vector2 operator/ (float number) { return Vector2(_x / number, _y / number); }
 		
 	};
 }

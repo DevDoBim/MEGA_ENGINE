@@ -42,11 +42,14 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.cpp">
       <Filter>Component\SpriteRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Camera.cpp">
-      <Filter>Component</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Component.cpp">
       <Filter>Component\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Camera.cpp">
+      <Filter>Component\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Renderer.cpp">
+      <Filter>Renderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,11 +103,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_SpriteRenderer.h">
       <Filter>Component\SpriteRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Camera.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Component.h">
       <Filter>Component\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Camera.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Renderer.h">
+      <Filter>Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +149,12 @@
     </Filter>
     <Filter Include="Component\Component">
       <UniqueIdentifier>{434da308-140d-4804-8b3e-e407666b4efd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{710ced60-806e-49ed-a732-eb67f3f0a0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{0ab11777-3d31-4bb7-9bbd-63a15a164161}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

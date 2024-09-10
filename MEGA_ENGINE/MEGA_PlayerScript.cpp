@@ -34,6 +34,24 @@ namespace MEGA
 			position._x -= Time::DeltaTime() * 100.0f;
 			transform->SetPosition(position);
 		}
+
+		if (Input::GetKey(e_KeyCode::Up))
+		{
+			Transform* transform = GetOwner()->GetComponent<Transform>();
+			Vector2 position = transform->GetPosition();
+
+			position._y -= Time::DeltaTime() * 100.0f;
+			transform->SetPosition(position);
+		}
+
+		if (Input::GetKey(e_KeyCode::Down))
+		{
+			Transform* transform = GetOwner()->GetComponent<Transform>();
+			Vector2 position = transform->GetPosition();
+
+			position._y += Time::DeltaTime() * 100.0f;
+			transform->SetPosition(position);
+		}
 	}
 	void PlayerScript::LateUpdate()
 	{

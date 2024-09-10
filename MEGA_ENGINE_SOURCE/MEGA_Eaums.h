@@ -18,6 +18,7 @@ namespace MEGA
 		TransForm,
 		SpriteRenderer,
 		Script,
+		Camera,
 		End,
 	};
 

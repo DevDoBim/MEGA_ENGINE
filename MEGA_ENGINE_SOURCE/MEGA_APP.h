@@ -19,6 +19,8 @@ namespace MEGA
 
 	public:
 		HDC GetHDC() const { return _hdc; }
+		UINT GetWidth() const { return _width; }
+		UINT GetHeight() const { return _height; }
 
 	//Initialize
 	private:

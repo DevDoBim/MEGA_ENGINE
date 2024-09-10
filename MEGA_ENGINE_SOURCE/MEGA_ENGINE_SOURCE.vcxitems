@@ -24,6 +24,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Layer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Math.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Object.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Renderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Resources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Scene.h" />
@@ -43,6 +44,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Input.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Layer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Math.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Renderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Resources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Scene.cpp" />

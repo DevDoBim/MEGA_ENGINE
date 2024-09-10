@@ -6,6 +6,8 @@ namespace MEGA
 {
 	void LoadResources()
 	{
-		Resources::Load<graphics::Texture>(L"Background", L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\CloudOcean.png");
+		Resources::Load<graphics::Texture>(L"World", L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\Img\\World_0.png");
+		Resources::Load<graphics::Texture>(L"Mario", L"C:\\Users\\DoBim\\source\\repos\\MAEA_ENGINE\\Resource\\Img\\Mario_0.bmp");
 	}
 }
+ 

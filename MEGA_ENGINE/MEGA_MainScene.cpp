@@ -12,11 +12,13 @@
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Object.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Texture.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Resources.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Camera.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Renderer.h"
 
 
 namespace MEGA
 {
-	MainScene::MainScene() : _backGround{}
+	MainScene::MainScene() : _player(nullptr)
 	{
 	}
 
@@ -27,14 +29,30 @@ namespace MEGA
 	void MainScene::Initialize()
 	{	
 		{
+			GameObject* camera = Object::Instantiate<GameObject>(e_LayerType::None, Vector2(540.0f, 240.0f));
+			Camera* cameraComp =  camera->AddComponent<Camera>();
+
+			renderer::mainCamera = cameraComp;
+			//camera->AddComponent<PlayerScript>();
+
 			// 게임 오브젝트들을 생성하기 전에 Load를 한다.
-			_backGround = Object::Instantiate<Player>(e_LayerType::BackGround);
-			SpriteRenderer* sprite = _backGround->AddComponent<SpriteRenderer>();
+			_player = Object::Instantiate<Player>(e_LayerType::Player);
+			SpriteRenderer* sprite = _player->AddComponent<SpriteRenderer>();
+			//sprite->SetSize(Vector2(3.0f, 3.0f));
+			_player->AddComponent<PlayerScript>();
 
-			graphics::Texture* background = Resources::Find<graphics::Texture>(L"Background");
-			sprite->SetTexture(background);
+			graphics::Texture* Mario = Resources::Find<graphics::Texture>(L"Mario");
+			sprite->SetTexture(Mario);
 
-			_backGround->AddComponent<PlayerScript>();
+
+
+			GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::BackGround);
+			SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
+
+			graphics::Texture* World = Resources::Find<graphics::Texture>(L"World");
+			spriteBg->SetTexture(World);
+
+			//_backGround->AddComponent<PlayerScript>();
 		}
 	}
 
@@ -56,10 +74,10 @@ namespace MEGA
 
 	void MainScene::Render(HDC hdc)
 	{
-		Scene::Render(hdc);
+		/*Scene::Render(hdc);
 		wchar_t str[256] = L"Main Scene";
 		int len = wcsnlen_s(str, 256);
-		TextOut(hdc, 100, 100, str, len);
+		TextOut(hdc, 100, 100, str, len);*/
 	}
 
 	void MainScene::OnEnter()
@@ -67,7 +85,7 @@ namespace MEGA
 	}
 	void MainScene::OnExit()
 	{
-		Transform* transform = _backGround->GetComponent<Transform>();
+		Transform* transform = _player->GetComponent<Transform>();
 		transform->SetPosition(Vector2(0, 0));
 	}
 }

@@ -23,7 +23,7 @@ namespace MEGA
 		void OnExit() override;
 
 	private:
-		Player* _backGround;
+		Player* _player;
 	};
 }
 
