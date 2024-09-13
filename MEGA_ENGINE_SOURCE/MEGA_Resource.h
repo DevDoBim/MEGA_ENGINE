@@ -6,7 +6,6 @@ namespace MEGA
 	class Resource : public SceneName
 	{
 	public:
-		Resource() = delete;
 		Resource(e_ResourceType type);
 		virtual ~Resource();
 

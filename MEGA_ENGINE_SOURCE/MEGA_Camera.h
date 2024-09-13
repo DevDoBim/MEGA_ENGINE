@@ -1,6 +1,5 @@
 #pragma once
 #include "MEGA_Component.h"
-#include "MEGA_GameObject.h"
 
 namespace MEGA
 {

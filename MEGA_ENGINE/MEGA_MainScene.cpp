@@ -74,10 +74,10 @@ namespace MEGA
 
 	void MainScene::Render(HDC hdc)
 	{
-		/*Scene::Render(hdc);
-		wchar_t str[256] = L"Main Scene";
-		int len = wcsnlen_s(str, 256);
-		TextOut(hdc, 100, 100, str, len);*/
+		Scene::Render(hdc);
+		//wchar_t str[256] = L"Main Scene";
+		//int len = wcsnlen_s(str, 256);
+		//TextOut(hdc, 100, 100, str, len);
 	}
 
 	void MainScene::OnEnter()

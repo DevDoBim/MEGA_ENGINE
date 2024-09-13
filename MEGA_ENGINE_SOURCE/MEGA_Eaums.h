@@ -17,6 +17,7 @@ namespace MEGA
 	{
 		TransForm,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
@@ -26,6 +27,7 @@ namespace MEGA
 	{
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};
