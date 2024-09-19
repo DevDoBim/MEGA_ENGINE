@@ -46,11 +46,18 @@ namespace MEGA
 		}
 		else if (_texture->GetTextureType() == Check_PNG)
 		{
+			Gdiplus::ImageAttributes imageAtt = {};
+			imageAtt.SetColorKey(Gdiplus::Color(220, 220, 220), Gdiplus::Color(255, 255, 255));
+
 			Gdiplus::Graphics graphics(hdc);
 			graphics.DrawImage
 			(
 				_texture->GetImage(),
-				Gdiplus::Rect(position._x, position._y, _texture->GetWidth() * _scale._x, _texture->GetHeight() * _scale._y)
+				Gdiplus::Rect(position._x, position._y, _texture->GetWidth() * _scale._x, _texture->GetHeight() * _scale._y),
+				0, 0,
+				_texture->GetWidth(), _texture->GetHeight(),
+				Gdiplus::UnitPixel,
+				nullptr
 			);
 		}
 		

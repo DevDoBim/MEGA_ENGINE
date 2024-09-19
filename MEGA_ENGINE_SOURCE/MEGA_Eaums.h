@@ -10,6 +10,7 @@ namespace MEGA
 		//Mover,
 		//Character,
 		Player,
+		Particle,
 		MAX = 10
 	};
 

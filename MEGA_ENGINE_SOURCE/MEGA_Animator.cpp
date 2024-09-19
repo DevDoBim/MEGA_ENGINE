@@ -37,18 +37,19 @@ namespace MEGA
 	}
 	void Animator::CreateAnimation
 	(
-		const std::wstring name, 
+		const std::wstring& name, 
 		graphics::Texture* spriteSheet, 
 		math::Vector2 leftTop, 
 		math::Vector2 size, 
 		math::Vector2 offset, 
 		UINT spriteLength, 
-		float duration)
+		float duration
+	)
 	{
 		Animation* animation = nullptr;
 		animation = FindAnimation(name);
 
-		if (animation == nullptr)
+		if (animation != nullptr)
 		{
 			return;
 		}
@@ -60,7 +61,7 @@ namespace MEGA
 		_animations.insert(std::make_pair(name, animation));
 
 	}
-	Animation* Animator::FindAnimation(const std::wstring name)
+	Animation* Animator::FindAnimation(const std::wstring& name)
 	{
 		auto iter = _animations.find(name);
 		if (iter == _animations.end())
@@ -70,7 +71,7 @@ namespace MEGA
 
 		return iter->second;
 	}
-	void Animator::PlayAnimation(const std::wstring name, bool loop)
+	void Animator::PlayAnimation(const std::wstring& name, bool loop)
 	{
 		Animation* animation = FindAnimation(name);
 		if (animation == nullptr)

@@ -23,11 +23,14 @@ namespace MEGA
 	void Animation::Update()
 	{
 		if (_bComplete) { return; }
+
 		_time += Time::DeltaTime();
 
 		if (_animationSheet[_index].duration < _time)
 		{
-			if (_index < _animationSheet.size())
+			_time = 0.0f;
+
+			if (_index < _animationSheet.size() -1)
 			{
 				_index++;
 			}
@@ -54,19 +57,73 @@ namespace MEGA
 			position = renderer::mainCamera->CalculatePosition(position);
 		}
 
-		//AlphaBlend(.)
+		graphics::Texture::e_TextureType type =  _texture->GetTextureType();
+		Sprite sprite = _animationSheet[_index];
+
+		if (type == graphics::Texture::e_TextureType::BMP)
+		{
+			BLENDFUNCTION func = {};
+			func.BlendOp = AC_SRC_OVER;
+			func.BlendFlags = 0;
+			func.AlphaFormat = AC_SRC_ALPHA;
+			func.SourceConstantAlpha = 255; // (0 : 완전투명 transparent) 0 ~ 255 (255 : 불투명 Opaque)
+
+			
+			HDC imgHdc = _texture->GetHDC();
+
+
+			AlphaBlend
+			(
+				hdc,
+				position._x,
+				position._y,
+				sprite.size._x * 5,
+				sprite.size._y * 5,
+				imgHdc,
+				sprite.leftTop._x,
+				sprite.leftTop._y,
+				sprite.size._x,
+				sprite.size._y,
+				func
+			);
+		}
+		else if (type == graphics::Texture::e_TextureType::PNG)
+		{
+			// 원하는 픽셀 투명화, 범위 지정
+			Gdiplus::ImageAttributes imageAtt = {};
+			imageAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(hdc);
+			graphics.DrawImage
+			(
+				_texture->GetImage(), 
+				Gdiplus::Rect(position._x, position._y, sprite.size._x, sprite.size._y),
+				sprite.leftTop._x, 
+				sprite.leftTop._y, 
+				sprite.size._x,
+				sprite.size._y,
+				Gdiplus::UnitPixel,
+				&imageAtt
+			);
+		}
+
+		
+
 	}
-	void Animation::CreateAnimation(const std::wstring name, graphics::Texture* spriteSheet, math::Vector2 leftTop, math::Vector2 size, math::Vector2 offset, UINT spriteLength, float duration)
+	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet, math::Vector2 leftTop, math::Vector2 size, math::Vector2 offset, UINT spriteLength, float duration)
 	{
 		_texture = spriteSheet;
+
 		for (size_t i = 0; i < spriteLength; i++)
 		{
 			Sprite sprite = {};
-			sprite.leftTop._x = leftTop._x + size._x * i;
+			sprite.leftTop._x = leftTop._x + (size._x * i);
 			sprite.leftTop._y = leftTop._y;
 			sprite.size = size;
 			sprite.offset = offset;
 			sprite.duration = duration;
+
+			_animationSheet.push_back(sprite);
 		}
 	}
 	void Animation::Reset()

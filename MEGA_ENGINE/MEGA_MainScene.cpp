@@ -14,7 +14,9 @@
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Resources.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Camera.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Renderer.h"
+#include "..\MEGA_ENGINE_SOURCE\MEGA_Animator.h"
 
+using namespace MEGA::math;
 
 namespace MEGA
 {
@@ -36,20 +38,19 @@ namespace MEGA
 			//camera->AddComponent<PlayerScript>();
 
 			// 게임 오브젝트들을 생성하기 전에 Load를 한다.
-			_player = Object::Instantiate<Player>(e_LayerType::Player);
-			SpriteRenderer* sprite = _player->AddComponent<SpriteRenderer>();
-			//sprite->SetSize(Vector2(3.0f, 3.0f));
+			_player = Object::Instantiate<Player>(e_LayerType::Particle);
 			_player->AddComponent<PlayerScript>();
 
-			graphics::Texture* Mario = Resources::Find<graphics::Texture>(L"Mario");
-			sprite->SetTexture(Mario);
+			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Effect");
+			Animator* animator = _player->AddComponent<Animator>();
+			animator->CreateAnimation(L"MarioMove", marioTexture, Vector2::zero, Vector2(386.0f ,246.0f), Vector2::zero, 8, 0.1f);
 
+			animator->PlayAnimation(L"MarioMove", true);
 
-
-			GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::BackGround);
+			GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);
 			SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
 
-			graphics::Texture* World = Resources::Find<graphics::Texture>(L"World");
+			graphics::Texture* World = Resources::Find<graphics::Texture>(L"Bubble");
 			spriteBg->SetTexture(World);
 
 			//_backGround->AddComponent<PlayerScript>();

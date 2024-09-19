@@ -19,7 +19,7 @@ namespace MEGA
 	public:
 		void CreateAnimation
 		(
-			const std::wstring name, 
+			const std::wstring& name, 
 			graphics::Texture* spriteSheet,
 			math::Vector2 leftTop, 
 			math::Vector2 size, 
@@ -28,8 +28,8 @@ namespace MEGA
 			float duration
 		);
 
-		Animation* FindAnimation(const std::wstring name);
-		void PlayAnimation(const std::wstring name, bool loop = true);
+		Animation* FindAnimation(const std::wstring& name);
+		void PlayAnimation(const std::wstring& name, bool loop = true);
 
 	private:
 		std::map<std::wstring, Animation*> _animations;

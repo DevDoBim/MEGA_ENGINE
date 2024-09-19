@@ -33,7 +33,7 @@ namespace MEGA
 	public:
 		void CreateAnimation
 		(
-			const std::wstring name,
+			const std::wstring& name,
 			graphics::Texture* spriteSheet,
 			math::Vector2 leftTop,
 			math::Vector2 size,
