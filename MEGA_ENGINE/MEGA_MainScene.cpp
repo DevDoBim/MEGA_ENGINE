@@ -43,9 +43,12 @@ namespace MEGA
 
 			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Effect");
 			Animator* animator = _player->AddComponent<Animator>();
-			animator->CreateAnimation(L"MarioMove", marioTexture, Vector2::zero, Vector2(386.0f ,246.0f), Vector2::zero, 8, 0.1f);
+			animator->CreateAnimation(L"EffectMaple", marioTexture, Vector2::zero, Vector2(386.0f ,246.0f), Vector2::zero, 8, 0.1f);
+			animator->PlayAnimation(L"EffectMaple", true);
 
-			animator->PlayAnimation(L"MarioMove", true);
+			_player->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
+			_player->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+			_player->GetComponent<Transform>()->SetLotation(0.0f);
 
 			GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);
 			SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
@@ -83,10 +86,11 @@ namespace MEGA
 
 	void MainScene::OnEnter()
 	{
+
 	}
 	void MainScene::OnExit()
 	{
-		Transform* transform = _player->GetComponent<Transform>();
-		transform->SetPosition(Vector2(0, 0));
+		//Transform* transform = _player->GetComponent<Transform>();
+		//transform->SetPosition(Vector2(0, 0));
 	}
 }

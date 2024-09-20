@@ -32,6 +32,9 @@ namespace MEGA
 
 		Transform* transform = GetOwner()->GetComponent<Transform>();
 		Vector2 position = transform->GetPosition();
+		Vector2 scale = transform->GetScale();
+		float rotation = transform->GetLotation();
+
 		position = renderer::mainCamera->CalculatePosition(position);
 
 		// Texture Type
@@ -39,7 +42,7 @@ namespace MEGA
 		{
 			TransparentBlt
 			(
-				hdc, position._x, position._y, _texture->GetWidth() * _scale._x, _texture->GetHeight() * _scale._y,
+				hdc, position._x, position._y, _texture->GetWidth() * _scale._x * scale._x, _texture->GetHeight() * _scale._y * scale._y,
 				_texture->GetHDC(), 0, 0, _texture->GetWidth(), _texture->GetHeight(), 
 				RGB(255, 0, 255)
 			);
@@ -50,10 +53,15 @@ namespace MEGA
 			imageAtt.SetColorKey(Gdiplus::Color(220, 220, 220), Gdiplus::Color(255, 255, 255));
 
 			Gdiplus::Graphics graphics(hdc);
+
+			graphics.TranslateTransform(position._x, position._y);
+			graphics.RotateTransform(rotation);
+			graphics.TranslateTransform(-position._x, -position._y);
+
 			graphics.DrawImage
 			(
 				_texture->GetImage(),
-				Gdiplus::Rect(position._x, position._y, _texture->GetWidth() * _scale._x, _texture->GetHeight() * _scale._y),
+				Gdiplus::Rect(position._x, position._y, _texture->GetWidth() * _scale._x * scale._x, _texture->GetHeight() * _scale._y * scale._y),
 				0, 0,
 				_texture->GetWidth(), _texture->GetHeight(),
 				Gdiplus::UnitPixel,

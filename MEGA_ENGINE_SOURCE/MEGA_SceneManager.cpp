@@ -5,7 +5,7 @@ namespace MEGA
 	std::map<std::wstring, Scene*> SceneManager::_scene = {};
 	Scene* SceneManager::_activeScene = nullptr;
 
-		Scene* SceneManager::LoadScene(const std::wstring& sceneName)
+	Scene* SceneManager::LoadScene(const std::wstring& sceneName)
 	{
 		if (_activeScene)
 		{

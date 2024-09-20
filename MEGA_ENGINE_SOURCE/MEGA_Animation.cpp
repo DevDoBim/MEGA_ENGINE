@@ -50,11 +50,13 @@ namespace MEGA
 		GameObject* gameObj = _animator->GetOwner();
 		Transform* transform = gameObj->GetComponent<Transform>();
 
-		math::Vector2 position = transform->GetPosition();
+		Vector2 position = transform->GetPosition();
+		Vector2 scale = transform->GetScale();
+		float rotation = transform->GetLotation();
 
 		if (renderer::mainCamera)
 		{
-			position = renderer::mainCamera->CalculatePosition(position);
+			//position = renderer::mainCamera->CalculatePosition(position);
 		}
 
 		graphics::Texture::e_TextureType type =  _texture->GetTextureType();
@@ -75,10 +77,10 @@ namespace MEGA
 			AlphaBlend
 			(
 				hdc,
-				position._x,
-				position._y,
-				sprite.size._x * 5,
-				sprite.size._y * 5,
+				position._x - (sprite.size._x / 2.0f),
+				position._y - (sprite.size._y / 2.0f),
+				sprite.size._x * scale._x,
+				sprite.size._y * scale._y,
 				imgHdc,
 				sprite.leftTop._x,
 				sprite.leftTop._y,
@@ -94,10 +96,21 @@ namespace MEGA
 			imageAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
 
 			Gdiplus::Graphics graphics(hdc);
+
+			graphics.TranslateTransform(position._x, position._y);
+			graphics.RotateTransform(rotation);
+			graphics.TranslateTransform(-position._x, -position._y);
+
 			graphics.DrawImage
 			(
 				_texture->GetImage(), 
-				Gdiplus::Rect(position._x, position._y, sprite.size._x, sprite.size._y),
+				Gdiplus::Rect
+				(
+					position._x - (sprite.size._x / 2.0f),
+					position._y - (sprite.size._y / 2.0f),
+					sprite.size._x * scale._x,
+					sprite.size._y * scale._y
+				),
 				sprite.leftTop._x, 
 				sprite.leftTop._y, 
 				sprite.size._x,
