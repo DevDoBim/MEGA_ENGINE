@@ -41,10 +41,17 @@ namespace MEGA
 			_player = Object::Instantiate<Player>(e_LayerType::Particle);
 			_player->AddComponent<PlayerScript>();
 
-			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Effect");
+			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Cat");
 			Animator* animator = _player->AddComponent<Animator>();
-			animator->CreateAnimation(L"EffectMaple", marioTexture, Vector2::zero, Vector2(386.0f ,246.0f), Vector2::zero, 8, 0.1f);
-			animator->PlayAnimation(L"EffectMaple", true);
+			animator->CreateAnimation(L"DownWalk", marioTexture, Vector2(0.0f, 0.0f), Vector2(32.0f ,32.0f), Vector2::zero, 4, 0.1f);
+			animator->CreateAnimation(L"RightWalk", marioTexture, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			animator->CreateAnimation(L"UpWalk", marioTexture, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			animator->CreateAnimation(L"LeftWalk", marioTexture, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			animator->CreateAnimation(L"Seat", marioTexture, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			animator->CreateAnimation(L"Grooming", marioTexture, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			
+			
+			animator->PlayAnimation(L"Seat", true);
 
 			_player->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
 			_player->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
