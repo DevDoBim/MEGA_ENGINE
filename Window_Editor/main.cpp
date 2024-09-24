@@ -134,6 +134,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    MEGA::LoadResources();
    MEGA::LoadScenes();
 
+   int randNumber = 0;
+   srand((unsigned int) &randNumber);
+
    return TRUE;
 }
 

@@ -9,6 +9,7 @@ namespace MEGA
 		//Objects,
 		//Mover,
 		//Character,
+		Animal,
 		Player,
 		Particle,
 		MAX = 10

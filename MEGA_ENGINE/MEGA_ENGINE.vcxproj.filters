@@ -28,6 +28,12 @@
     <ClInclude Include="MEGA_PlayerScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="MEGA_Cat.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MEGA_CatScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MEGA_TitleScene.cpp">
@@ -40,6 +46,12 @@
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="MEGA_PlayerScript.cpp">
+      <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="MEGA_Cat.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MEGA_CatScript.cpp">
       <Filter>Scripts</Filter>
     </ClCompile>
   </ItemGroup>

@@ -136,6 +136,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MEGA_Cat.h" />
+    <ClInclude Include="MEGA_CatScript.h" />
     <ClInclude Include="MEGA_LoadScenes.h" />
     <ClInclude Include="MEGA_MainScene.h" />
     <ClInclude Include="MEGA_Player.h" />
@@ -144,6 +146,8 @@
     <ClInclude Include="MEGA_LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MEGA_Cat.cpp" />
+    <ClCompile Include="MEGA_CatScript.cpp" />
     <ClCompile Include="MEGA_MainScene.cpp" />
     <ClCompile Include="MEGA_Player.cpp" />
     <ClCompile Include="MEGA_PlayerScript.cpp" />

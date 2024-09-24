@@ -1,6 +1,9 @@
+#pragma once
 #include "MEGA_MainScene.h"
 #include "MEGA_Player.h"
 #include "MEGA_PlayerScript.h"
+#include "MEGA_Cat.h"
+#include "MEGA_CatScript.h"
 
 #include "MEGA_TitleScene.h"
 
@@ -38,7 +41,7 @@ namespace MEGA
 			//camera->AddComponent<PlayerScript>();
 
 			// 게임 오브젝트들을 생성하기 전에 Load를 한다.
-			_player = Object::Instantiate<Player>(e_LayerType::Particle);
+			_player = Object::Instantiate<Player>(e_LayerType::Player);
 			_player->AddComponent<PlayerScript>();
 
 			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Cat");
@@ -57,13 +60,31 @@ namespace MEGA
 			_player->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 			_player->GetComponent<Transform>()->SetLotation(0.0f);
 
-			GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);
-			SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
+			//GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);
+			//SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
 
-			graphics::Texture* World = Resources::Find<graphics::Texture>(L"Bubble");
-			spriteBg->SetTexture(World);
+			//graphics::Texture* World = Resources::Find<graphics::Texture>(L"Bubble");
+			//spriteBg->SetTexture(World);
 
 			//_backGround->AddComponent<PlayerScript>();
+			Cat* cat = Object::Instantiate<Cat>(e_LayerType::Animal);
+			cat->AddComponent<CatScript>();
+
+			graphics::Texture* catTextures = Resources::Find<graphics::Texture>(L"Cat");
+			Animator* Catanimator = cat->AddComponent<Animator>();
+			Catanimator->CreateAnimation(L"DownWalk", catTextures, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			Catanimator->CreateAnimation(L"RightWalk", catTextures, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			Catanimator->CreateAnimation(L"UpWalk", catTextures, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			Catanimator->CreateAnimation(L"LeftWalk", catTextures, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			Catanimator->CreateAnimation(L"Seat", catTextures, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			Catanimator->CreateAnimation(L"Grooming", catTextures, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+
+
+			Catanimator->PlayAnimation(L"Seat", true);
+
+			cat->GetComponent<Transform>()->SetPosition(Vector2(100.0f, 200.0f));
+			cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+			cat->GetComponent<Transform>()->SetLotation(0.0f);
 		}
 	}
 
