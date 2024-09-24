@@ -1,4 +1,5 @@
 #include "MEGA_PlayerScript.h"
+
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Input.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Time.h"
 #include "..\MEGA_ENGINE_SOURCE\MEGA_Transform.h"
@@ -9,7 +10,7 @@
 namespace MEGA
 {
 	PlayerScript::PlayerScript()
-		: _state(PlayerScript::e_State::Seat), _animator(nullptr)
+		: _state(PlayerScript::e_State::Idle), _animator(nullptr)
 	{
 	}
 	PlayerScript::~PlayerScript()
@@ -27,22 +28,17 @@ namespace MEGA
 		}
 		switch (_state)
 		{
+		case MEGA::PlayerScript::e_State::Idle:
+			idle();
+			break;
+
 		case MEGA::PlayerScript::e_State::Walk:
 			move();
 			break;
 
-		case MEGA::PlayerScript::e_State::Seat:
-			seat();
+		case MEGA::PlayerScript::e_State::GiveWater:
 			break;
 
-		case MEGA::PlayerScript::e_State::Grooming:
-			break;
-
-		case MEGA::PlayerScript::e_State::Sleep:
-			break;
-
-		case MEGA::PlayerScript::e_State::WakeUp:
-			break;
 
 		default:
 			break;
@@ -55,8 +51,17 @@ namespace MEGA
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::seat()
+	void PlayerScript::idle()
 	{
+		if (Input::GetKey(e_KeyCode::LButton))
+		{
+			_state = PlayerScript::e_State::GiveWater;
+			_animator->PlayAnimation(L"RightWalk", true);
+
+			Vector2 mousePosition = Input::GetMosuePosition();
+
+		}
+
 		if (Input::GetKey(e_KeyCode::Right))
 		{
 			_state = PlayerScript::e_State::Walk;
@@ -103,7 +108,7 @@ namespace MEGA
 
 		if (Input::GetKey(e_KeyCode::Down))
 		{
-			position._y += 100.0f * Time::DeltaTime();
+			position._y += 100.0f * Time::DeltaTime();	
 		}
 
 		transform->SetPosition(position);
@@ -115,8 +120,8 @@ namespace MEGA
 			Input::GetKeyUp(e_KeyCode::Down)
 			)
 		{
-			_state = PlayerScript::e_State::Seat;
-			_animator->PlayAnimation(L"Seat", false);
+			_state = PlayerScript::e_State::Idle;
+			_animator->PlayAnimation(L"Idle", false);
 		}
 	}
 }

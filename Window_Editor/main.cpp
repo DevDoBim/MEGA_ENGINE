@@ -102,8 +102,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance;
 
-   constexpr UINT width = 1080;
-   constexpr UINT height = 480;
+   constexpr UINT width = 1200;
+   constexpr UINT height = 980;
 
    HWND hWnd = CreateWindowW
    (

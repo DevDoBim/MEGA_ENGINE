@@ -6,13 +6,14 @@
 // Audio & Input
 #include <mmsystem.h>
 #include <dinput.h>
-#pragma comment(lib, "Msimg32.lib");
+
+#pragma comment(lib, "Msimg32.lib")
 // BitMap
-#pragma comment(lib, "winmm.lib");
+#pragma comment(lib, "winmm.lib")
 
 // GDI
 #include <gdiplus.h>
-#pragma comment(lib, "gdiplus.lib");
+#pragma comment(lib, "gdiplus.lib")
 
 // C Style
 #include <cassert>

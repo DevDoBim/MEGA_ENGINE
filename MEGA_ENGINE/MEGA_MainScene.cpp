@@ -44,20 +44,14 @@ namespace MEGA
 			_player = Object::Instantiate<Player>(e_LayerType::Player);
 			_player->AddComponent<PlayerScript>();
 
-			graphics::Texture* marioTexture = Resources::Find<graphics::Texture>(L"Cat");
-			Animator* animator = _player->AddComponent<Animator>();
-			animator->CreateAnimation(L"DownWalk", marioTexture, Vector2(0.0f, 0.0f), Vector2(32.0f ,32.0f), Vector2::zero, 4, 0.1f);
-			animator->CreateAnimation(L"RightWalk", marioTexture, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
-			animator->CreateAnimation(L"UpWalk", marioTexture, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
-			animator->CreateAnimation(L"LeftWalk", marioTexture, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
-			animator->CreateAnimation(L"Seat", marioTexture, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
-			animator->CreateAnimation(L"Grooming", marioTexture, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
+			graphics::Texture* playerTextures = Resources::Find<graphics::Texture>(L"Player");
+			Animator* playerAnimator = _player->AddComponent<Animator>();
+			playerAnimator->CreateAnimation(L"Idle", playerTextures, Vector2(2000.0f, 250.0f), Vector2(250.0f ,250.0f), Vector2::zero, 1, 0.1f);
 			
-			
-			animator->PlayAnimation(L"Seat", true);
+			playerAnimator->PlayAnimation(L"Idle", true);
 
 			_player->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
-			_player->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+			//_player->GetComponent<Transform>()->SetScale(Vector2(0.7f, 0.7f));
 			_player->GetComponent<Transform>()->SetLotation(0.0f);
 
 			//GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);

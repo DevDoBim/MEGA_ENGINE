@@ -18,6 +18,7 @@ namespace MEGA
 		void Render();
 
 	public:
+		HWND GetHWND() const { return _hWnd; }
 		HDC GetHDC() const { return _hdc; }
 		UINT GetWidth() const { return _width; }
 		UINT GetHeight() const { return _height; }

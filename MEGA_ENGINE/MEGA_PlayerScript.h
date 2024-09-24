@@ -12,11 +12,9 @@ namespace MEGA
 	public:
 		enum class e_State
 		{
+			Idle,
 			Walk,
-			Seat,
-			Grooming,
-			Sleep,
-			WakeUp
+			GiveWater
 		};
 
 	public:
@@ -26,7 +24,7 @@ namespace MEGA
 		void Render(HDC hdc) override;
 
 	private:
-		void seat();
+		void idle();
 		void move();
 
 	private:

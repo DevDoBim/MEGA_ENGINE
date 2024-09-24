@@ -18,6 +18,7 @@ namespace MEGA
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
 		Left, Right, Down, Up,
+		LButton, RButton,
 		End
 	};
 
@@ -34,10 +35,6 @@ namespace MEGA
 		};
 
 	public:
-		Input() = default;
-		~Input() = default;
-
-	public:
 		static void Initailize();
 		static void Update();
 
@@ -45,13 +42,22 @@ namespace MEGA
 		static bool GetKeyDown(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Down; }
 		static bool GetKeyUp(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Up; }
 		static bool GetKey(e_KeyCode code) { return keys[static_cast<UINT>(code)].state == e_KeyState::Pressed; }
+		static math::Vector2 GetMosuePosition() { return mousePosition; }
+
+	private:
+		Input() = default;
+		~Input() = default;
 
 	private:
 		static void CreateKey();
 		static void UpdateKey();
+		static void PressKey();
+		static void SetMousePosition();
+		static void KeyClear();
 
 	private:
 		static std::vector<Key> keys;
+		static math::Vector2 mousePosition;
 	};
 }
 
