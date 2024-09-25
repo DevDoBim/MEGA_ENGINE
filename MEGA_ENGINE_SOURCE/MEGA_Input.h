@@ -52,7 +52,7 @@ namespace MEGA
 		static void CreateKey();
 		static void UpdateKey();
 		static void PressKey();
-		static void SetMousePosition();
+		static void GetMousePosition();
 		static void KeyClear();
 
 	private:

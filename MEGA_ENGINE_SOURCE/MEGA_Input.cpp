@@ -50,7 +50,7 @@ namespace MEGA
 		if (GetFocus())
 		{
 			PressKey();
-			SetMousePosition();
+			GetMousePosition();
 		}
 		else
 		{
@@ -92,7 +92,7 @@ namespace MEGA
 		}
 	}
 
-	void Input::SetMousePosition()
+	void Input::GetMousePosition()
 	{
 		POINT mousePos = {};
 		GetCursorPos(&mousePos);
@@ -115,6 +115,8 @@ namespace MEGA
 			{
 				key.state = e_KeyState::None;
 			}
+
+			key.bPressed = false;
 		}
 	}
 

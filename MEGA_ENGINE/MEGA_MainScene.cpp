@@ -47,6 +47,7 @@ namespace MEGA
 			graphics::Texture* playerTextures = Resources::Find<graphics::Texture>(L"Player");
 			Animator* playerAnimator = _player->AddComponent<Animator>();
 			playerAnimator->CreateAnimation(L"Idle", playerTextures, Vector2(2000.0f, 250.0f), Vector2(250.0f ,250.0f), Vector2::zero, 1, 0.1f);
+			playerAnimator->CreateAnimation(L"GiveWater", playerTextures, Vector2(0.0f, 2000.0f), Vector2(250.0f ,250.0f), Vector2::zero, 12, 0.1f);
 			
 			playerAnimator->PlayAnimation(L"Idle", true);
 
@@ -54,13 +55,8 @@ namespace MEGA
 			//_player->GetComponent<Transform>()->SetScale(Vector2(0.7f, 0.7f));
 			_player->GetComponent<Transform>()->SetLotation(0.0f);
 
-			//GameObject* _backGround = Object::Instantiate<GameObject>(e_LayerType::Player);
-			//SpriteRenderer* spriteBg = _backGround->AddComponent<SpriteRenderer>();
 
-			//graphics::Texture* World = Resources::Find<graphics::Texture>(L"Bubble");
-			//spriteBg->SetTexture(World);
-
-			//_backGround->AddComponent<PlayerScript>();
+			// CAT
 			Cat* cat = Object::Instantiate<Cat>(e_LayerType::Animal);
 			cat->AddComponent<CatScript>();
 

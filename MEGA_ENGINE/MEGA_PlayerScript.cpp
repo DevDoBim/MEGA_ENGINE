@@ -37,6 +37,7 @@ namespace MEGA
 			break;
 
 		case MEGA::PlayerScript::e_State::GiveWater:
+			giveWater();
 			break;
 
 
@@ -56,10 +57,9 @@ namespace MEGA
 		if (Input::GetKey(e_KeyCode::LButton))
 		{
 			_state = PlayerScript::e_State::GiveWater;
-			_animator->PlayAnimation(L"RightWalk", true);
+			_animator->PlayAnimation(L"GiveWater", false);
 
 			Vector2 mousePosition = Input::GetMosuePosition();
-
 		}
 
 		if (Input::GetKey(e_KeyCode::Right))
@@ -119,6 +119,14 @@ namespace MEGA
 			Input::GetKeyUp(e_KeyCode::Up) ||
 			Input::GetKeyUp(e_KeyCode::Down)
 			)
+		{
+			_state = PlayerScript::e_State::Idle;
+			_animator->PlayAnimation(L"Idle", false);
+		}
+	}
+	void PlayerScript::giveWater()
+	{
+		if (_animator->IsComleteAnim())
 		{
 			_state = PlayerScript::e_State::Idle;
 			_animator->PlayAnimation(L"Idle", false);

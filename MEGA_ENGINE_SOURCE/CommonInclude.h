@@ -22,8 +22,7 @@
 #include <vector>
 #include <string>
 #include <map>
-
-// Etc
+#include <functional>
 #include <algorithm>
 
 // Custom

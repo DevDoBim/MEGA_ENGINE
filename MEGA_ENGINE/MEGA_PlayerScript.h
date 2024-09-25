@@ -26,10 +26,15 @@ namespace MEGA
 	private:
 		void idle();
 		void move();
+		void giveWater();
 
 	private:
 		e_State _state;
 		class Animator* _animator;
+
+		void(*StartEvent)();
+		void(*CompleteEvent)();
+		void(*EndEvent)();
 	};
 }
 

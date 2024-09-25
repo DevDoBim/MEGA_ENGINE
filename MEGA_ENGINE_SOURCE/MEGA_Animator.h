@@ -6,6 +6,33 @@ namespace MEGA
 {
 	class Animator : public Component
 	{
+
+	public:
+		struct Event
+		{
+			void operator=(std::function<void()> func)
+			{
+				_event = std::move(func);
+			}
+
+			void operator()()
+			{
+				if (_event)
+				{
+					_event;
+				}
+			}
+
+			std::function<void()> _event;
+		};
+
+		struct Events
+		{
+			Event _startEvent;
+			Event _completeEvent;
+			Event _endEvent;
+		};
+
 	public:
 		Animator();
 		~Animator();
@@ -31,10 +58,14 @@ namespace MEGA
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
 
+		bool IsComleteAnim() { return _activeAnimation->IsComplete(); }
+
 	private:
 		std::map<std::wstring, Animation*> _animations;
 		Animation* _activeAnimation;
 		bool _bLoop;
+
+		std::map<std::wstring, Events*> _events;
 	};
 
 }
