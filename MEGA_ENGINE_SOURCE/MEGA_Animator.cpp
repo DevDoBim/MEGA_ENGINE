@@ -19,9 +19,13 @@ namespace MEGA
 		{
 			_activeAnimation->Update();
 
-			if (_activeAnimation->IsComplete() == true && _bLoop == true)
+			Events* events = FindEvents(_activeAnimation->GetName());
+
+			if (_activeAnimation->IsComplete() == true)
 			{
-				_activeAnimation->Reset();
+				if (events) events->completeEvent();
+
+				if (_bLoop == true) _activeAnimation->Reset();
 			}
 		}
 	}
@@ -30,10 +34,7 @@ namespace MEGA
 	}
 	void Animator::Render(HDC hdc)
 	{
-		if (_activeAnimation)
-		{
-			_activeAnimation->Render(hdc);
-		}
+		if (_activeAnimation) _activeAnimation->Render(hdc);
 	}
 	void Animator::CreateAnimation
 	(
@@ -48,23 +49,27 @@ namespace MEGA
 	{
 		Animation* animation = nullptr;
 		animation = FindAnimation(name);
-
-		if (animation != nullptr)
+		if (animation == nullptr)
 		{
 			return;
 		}
 
 		animation = new Animation();
-		animation->CreateAnimation(name, spriteSheet, leftTop, size, offset, spriteLength, duration);
+		animation->SetName(name);
 
+		animation->CreateAnimation(name, spriteSheet, leftTop, size, offset, spriteLength, duration);
 		animation->SetAnimator(this);
+
+		Events* events = new Events();
+		_events.insert(std::make_pair(name, events));
+
 		_animations.insert(std::make_pair(name, animation));
 
 	}
 	Animation* Animator::FindAnimation(const std::wstring& name)
 	{
 		auto iter = _animations.find(name);
-		if (iter == _animations.end())
+		if(iter == _animations.end());
 		{
 			return nullptr;
 		}
@@ -79,8 +84,36 @@ namespace MEGA
 			return;
 		}
 
+		Events* currentEvent = FindEvents(_activeAnimation->GetName());
+		if(currentEvent) currentEvent->endEvent();
+
+		Events* nextEvent = FindEvents(_activeAnimation->GetName());
+		if(nextEvent) nextEvent->startEvent();
+
 		_activeAnimation = animation;
 		_activeAnimation->Reset();
 		_bLoop = loop;
+	}
+	Animator::Events* Animator::FindEvents(const std::wstring& name) const
+	{
+		auto iter = _events.find(name);
+		if (iter == _events.end()) return nullptr;
+
+		return iter->second;
+	}
+	std::function<void()>& Animator::GetStartEvent(const std::wstring& name) const
+	{
+		Events* events = FindEvents(name);
+		return events->startEvent._event;
+	}
+	std::function<void()>& Animator::GetCompleteEvent(const std::wstring& name) const
+	{
+		Events* events = FindEvents(name);
+		return events->completeEvent._event;
+	}
+	std::function<void()>& Animator::GetEndEvent(const std::wstring& name) const
+	{
+		Events* events = FindEvents(name);
+		return events->endEvent._event;
 	}
 }

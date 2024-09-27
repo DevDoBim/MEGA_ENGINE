@@ -51,8 +51,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Animator.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Animation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MEGA_Animator.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_APP.h" />
@@ -114,8 +118,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Renderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Animator.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Animation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MEGA_Animator.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -159,6 +167,9 @@
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{0ab11777-3d31-4bb7-9bbd-63a15a164161}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{f66e5c4f-7784-45f4-b038-6b50e6d9f9f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

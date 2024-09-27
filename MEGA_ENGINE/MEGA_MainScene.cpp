@@ -67,7 +67,6 @@ namespace MEGA
 			Catanimator->CreateAnimation(L"UpWalk", catTextures, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
 			Catanimator->CreateAnimation(L"LeftWalk", catTextures, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
 			Catanimator->CreateAnimation(L"Seat", catTextures, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
-			Catanimator->CreateAnimation(L"Grooming", catTextures, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::zero, 4, 0.1f);
 
 
 			Catanimator->PlayAnimation(L"Seat", true);

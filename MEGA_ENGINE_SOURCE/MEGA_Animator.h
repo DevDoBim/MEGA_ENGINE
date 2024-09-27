@@ -28,9 +28,9 @@ namespace MEGA
 
 		struct Events
 		{
-			Event _startEvent;
-			Event _completeEvent;
-			Event _endEvent;
+			Event startEvent;
+			Event completeEvent;
+			Event endEvent;
 		};
 
 	public:
@@ -57,6 +57,12 @@ namespace MEGA
 
 		Animation* FindAnimation(const std::wstring& name);
 		void PlayAnimation(const std::wstring& name, bool loop = true);
+
+	public:
+		Events* FindEvents(const std::wstring& name) const;
+		std::function<void()>& GetStartEvent(const std::wstring& name) const;
+		std::function<void()>& GetCompleteEvent(const std::wstring& name) const;
+		std::function<void()>& GetEndEvent(const std::wstring& name) const;
 
 		bool IsComleteAnim() { return _activeAnimation->IsComplete(); }
 
